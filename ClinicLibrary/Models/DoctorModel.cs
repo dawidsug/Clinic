@@ -23,7 +23,7 @@ namespace ClinicLibrary
         /// <summary>
         /// Doctor nickname in Clinic program.
         /// </summary>
-        public string NickName { get; set; }
+        public string Nickname { get; set; }
         /// <summary>
         /// Doctor email address.
         /// </summary>
@@ -33,8 +33,14 @@ namespace ClinicLibrary
         /// </summary>
         public string CellphoneNumber { get; set; }
         /// <summary>
+        /// Password for this Doctor account.
+        /// </summary>
+        public string Password { get; set; }
+        /// <summary>
         /// List of patients in database which are assigned to this doctor.
         /// </summary>
         public List<PatientModel> Patients { get; set; } = new List<PatientModel>();
     }
+    
+        
 }

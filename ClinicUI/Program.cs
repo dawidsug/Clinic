@@ -16,7 +16,8 @@ namespace ClinicUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            ClinicLibrary.GlobalConfig.InitializeConnections(ClinicLibrary.DatabaseType.TextFile);
+            Application.Run(new RegistrationForm());
         }
     }
 }

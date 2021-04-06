@@ -23,7 +23,7 @@ namespace ClinicLibrary
         /// <summary>
         /// Patient nickname in Clinic program.
         /// </summary>
-        public string NickName { get; set; }
+        public string Nickname { get; set; }
         /// <summary>
         /// Patient email address.
         /// </summary>
@@ -35,6 +35,7 @@ namespace ClinicLibrary
         /// <summary>
         /// Diet id in database which is assigned to this Patient.
         /// </summary>
-        public int DietId { get; set; }
+        public int Diets { get; set; }
+        //TODO Diet Id will be list of DietModel! 
     }
 }
