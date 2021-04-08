@@ -43,11 +43,14 @@ namespace ClinicLibrary.DataAccess
                 d.CellphoneNumber = cols[5];
                 d.Password = cols[6];
 
-                string[] patientsIds = cols[7].Split('|');
-
-                foreach (string id in patientsIds)
+                if (cols.Length > 7)
                 {
-                    d.Patients.Add(patients.Where(x => x.Id == int.Parse(id)).First());
+                    string[] patientsIds = cols[7].Split('|');
+
+                    foreach (string id in patientsIds)
+                    {
+                        d.Patients.Add(patients.Where(x => x.Id == int.Parse(id)).First());
+                    } 
                 }
 
                 output.Add(d);

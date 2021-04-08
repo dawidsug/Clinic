@@ -9,5 +9,6 @@ namespace ClinicLibrary.DataAccess
     public interface IDataConnector
     {
         void CreateDoctor(DoctorModel model);
+        List<DoctorModel> GetDoctors_All();
     }
 }

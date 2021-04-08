@@ -22,5 +22,11 @@ namespace ClinicLibrary.DataAccess
 
             doctors.SaveToDoctorFile();
         }
+
+        public List<DoctorModel> GetDoctors_All()
+        {
+            List<DoctorModel> doctors = GlobalConfig.DoctorFile.FullFilePath().LoadFile().ConvertToDoctorModel();
+            return doctors;
+        }
     }
 }

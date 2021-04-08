@@ -70,7 +70,6 @@
     <Compile Include="DataAccess\TextConnectorProcessor.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="GlobalConfig.cs" />
-    <Compile Include="IDataConnection.cs" />
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\DietModel.cs" />
     <Compile Include="Models\DoctorModel.cs" />

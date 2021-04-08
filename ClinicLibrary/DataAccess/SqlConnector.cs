@@ -29,5 +29,15 @@ namespace ClinicLibrary.DataAccess
                 //model.Id = p.Get<int>("@id");
             }
         }
+
+        public List<DoctorModel> GetDoctors_All()
+        {
+            List<DoctorModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                output = connection.Query<DoctorModel>("dbo.spDoctors_GetAll").ToList();
+            }
+            return output;
+        }
     }
 }

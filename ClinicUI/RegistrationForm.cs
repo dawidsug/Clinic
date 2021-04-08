@@ -83,6 +83,11 @@ namespace ClinicUI
                 passwordText.Text = "";
                 passwordAgainText.Text = "";
 
+                //LoginForm lf = new LoginForm();
+                //lf.Show();
+
+                this.Close();
+
             }
             else
             {
@@ -288,7 +293,7 @@ namespace ClinicUI
         {
             if (progressBar.Value <= 90)
             {
-                if (passwordAgainText.TextLength == 5 && passwordAgainText.TextLength == passwordText.TextLength)
+                if (passwordAgainText.TextLength >= 5 && passwordAgainText.Text == passwordText.Text)
                 {
                     progressBar.Value += 10;
                 }

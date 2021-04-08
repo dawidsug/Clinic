@@ -55,7 +55,7 @@
             // 
             // registrationLeftPanel
             // 
-            this.registrationLeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(131)))), ((int)(((byte)(235)))));
+            this.registrationLeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(122)))), ((int)(((byte)(226)))));
             this.registrationLeftPanel.Controls.Add(this.progressBar);
             this.registrationLeftPanel.Controls.Add(this.newDoctorLabel);
             this.registrationLeftPanel.Controls.Add(this.registryLabel);
@@ -80,7 +80,7 @@
             // 
             // registryButton
             // 
-            this.registryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(131)))), ((int)(((byte)(235)))));
+            this.registryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(122)))), ((int)(((byte)(226)))));
             this.registryButton.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.registryButton, "registryButton");
             this.registryButton.ForeColor = System.Drawing.Color.Black;
@@ -91,41 +91,49 @@
             // firstNameLabel
             // 
             resources.ApplyResources(this.firstNameLabel, "firstNameLabel");
+            this.firstNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.firstNameLabel.Name = "firstNameLabel";
             // 
             // personalDataLabel
             // 
             resources.ApplyResources(this.personalDataLabel, "personalDataLabel");
+            this.personalDataLabel.BackColor = System.Drawing.Color.Transparent;
             this.personalDataLabel.Name = "personalDataLabel";
             // 
             // lastNameLabel
             // 
             resources.ApplyResources(this.lastNameLabel, "lastNameLabel");
+            this.lastNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.lastNameLabel.Name = "lastNameLabel";
             // 
             // emailLabel
             // 
             resources.ApplyResources(this.emailLabel, "emailLabel");
+            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
             this.emailLabel.Name = "emailLabel";
             // 
             // cellphoneLabel
             // 
             resources.ApplyResources(this.cellphoneLabel, "cellphoneLabel");
+            this.cellphoneLabel.BackColor = System.Drawing.Color.Transparent;
             this.cellphoneLabel.Name = "cellphoneLabel";
             // 
             // nicknameLabel
             // 
             resources.ApplyResources(this.nicknameLabel, "nicknameLabel");
+            this.nicknameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nicknameLabel.Name = "nicknameLabel";
             // 
             // passwordLabel
             // 
             resources.ApplyResources(this.passwordLabel, "passwordLabel");
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordLabel.Name = "passwordLabel";
             // 
             // passwordAgainLabel
             // 
             resources.ApplyResources(this.passwordAgainLabel, "passwordAgainLabel");
+            this.passwordAgainLabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordAgainLabel.Name = "passwordAgainLabel";
             // 
             // firstNameText
@@ -187,6 +195,7 @@
             // warningLabel
             // 
             resources.ApplyResources(this.warningLabel, "warningLabel");
+            this.warningLabel.BackColor = System.Drawing.Color.Transparent;
             this.warningLabel.Name = "warningLabel";
             // 
             // RegistrationForm
