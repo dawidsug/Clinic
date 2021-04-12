@@ -78,6 +78,48 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main Forms\ClientsPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\ClientsPanelForm.Designer.cs">
+      <DependentUpon>ClientsPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\DietsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\DietsForm.Designer.cs">
+      <DependentUpon>DietsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\IngredientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\IngredientsForm.Designer.cs">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\MealsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\MealsForm.Designer.cs">
+      <DependentUpon>MealsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\NewClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\NewClientForm.Designer.cs">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\ProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\ProductsForm.Designer.cs">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +130,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\ClientsPanelForm.resx">
+      <DependentUpon>ClientsPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\DietsForm.resx">
+      <DependentUpon>DietsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\IngredientsForm.resx">
+      <DependentUpon>IngredientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\MealsForm.resx">
+      <DependentUpon>MealsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\NewClientForm.resx">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\ProductsForm.resx">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>

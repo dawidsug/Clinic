@@ -71,6 +71,18 @@ namespace ClinicLibrary.DataAccess
             File.WriteAllLines(GlobalConfig.DoctorFile.FullFilePath(), lines);
         }
 
+        public static void SaveToPatientFile(this List<PatientModel> models)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (PatientModel p in models)
+            {
+                lines.Add($"{ p.Id },{ p.FirstName },{ p.LastName },{ p.Nickname },{ p.EmailAddress },{ p.CellphoneNumber }");
+            }
+
+            File.WriteAllLines(GlobalConfig.PatientFile.FullFilePath(), lines);
+        }
+
         public static List<PatientModel> ConvertToPatientModel(this List<string> lines)
         {
             List<PatientModel> output = new List<PatientModel>();
@@ -94,9 +106,9 @@ namespace ClinicLibrary.DataAccess
                 foreach (string id in dietsIds)
                 {
                     p.Diets.Add(diets.Where(x => x.Id == int.Parse(id)).First());
-                }
+                }*/
 
-                output.Add(p);*/
+                output.Add(p);
             }
 
             return output;

@@ -23,10 +23,31 @@ namespace ClinicLibrary.DataAccess
             doctors.SaveToDoctorFile();
         }
 
+        public void CreatePatient(PatientModel model)
+        {
+            List<PatientModel> patients = GlobalConfig.DoctorFile.FullFilePath().LoadFile().ConvertToPatientModel();
+            int currentId = 1;
+            if (patients.Count > 0)
+            {
+                currentId = patients.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            patients.Add(model);
+
+            patients.SaveToPatientFile();
+        }
+
         public List<DoctorModel> GetDoctors_All()
         {
             List<DoctorModel> doctors = GlobalConfig.DoctorFile.FullFilePath().LoadFile().ConvertToDoctorModel();
             return doctors;
+        }
+
+        public List<PatientModel> GetPatients_All()
+        {
+            List<PatientModel> patients = GlobalConfig.PatientFile.FullFilePath().LoadFile().ConvertToPatientModel();
+            return patients;
         }
     }
 }

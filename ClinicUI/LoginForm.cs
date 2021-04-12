@@ -44,7 +44,9 @@ namespace ClinicUI
                 {
                     if(doctor.Password == passwordText.Text)
                     {
-                        MessageBox.Show("Yes you are");
+                        MainForm mf = new MainForm();
+                        mf.Show();
+                        this.Hide();
                     }
                     else
                     {

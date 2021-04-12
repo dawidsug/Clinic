@@ -37,5 +37,11 @@ namespace ClinicLibrary
         /// </summary>
         public int Diets { get; set; }
         //TODO Diet Id will be list of DietModel! 
+
+
+        public string FullName
+        {
+            get { return $" { FirstName } { LastName} "; }
+        }
     }
 }
