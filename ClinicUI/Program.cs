@@ -16,7 +16,7 @@ namespace ClinicUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ClinicLibrary.GlobalConfig.InitializeConnections(ClinicLibrary.DatabaseType.TextFile);
+            ClinicLibrary.GlobalConfig.InitializeConnections(ClinicLibrary.DatabaseType.Sql);
             Application.Run(new MainForm());
         }
     }

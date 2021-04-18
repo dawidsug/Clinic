@@ -34,11 +34,14 @@ namespace ClinicUI.Main_Forms
         private void clientsListBox_SelectedValueChanged(object sender, EventArgs e)
         {
             selectedPatient = (PatientModel)clientsListBox.SelectedItem;
-            firstNameText.Text = selectedPatient.FirstName;
-            lastNameText.Text = selectedPatient.LastName;
-            nicknameText.Text = selectedPatient.Nickname;
-            cellphoneText.Text = selectedPatient.CellphoneNumber;
-            emailText.Text = selectedPatient.EmailAddress;
+            if (selectedPatient != null)
+            {
+                firstNameText.Text = selectedPatient.FirstName;
+                lastNameText.Text = selectedPatient.LastName;
+                nicknameText.Text = selectedPatient.Nickname;
+                cellphoneText.Text = selectedPatient.CellphoneNumber;
+                emailText.Text = selectedPatient.EmailAddress; 
+            }
         }
     }
     

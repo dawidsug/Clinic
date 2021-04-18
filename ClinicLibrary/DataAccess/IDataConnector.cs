@@ -10,7 +10,11 @@ namespace ClinicLibrary.DataAccess
     {
         void CreateDoctor(DoctorModel model);
         void CreatePatient(PatientModel model);
+        void CreateProduct(ProductModel model);
+        void CheckProductExistence(ProductModel model);
         List<DoctorModel> GetDoctors_All();
         List<PatientModel> GetPatients_All();
+        List<ProductModel> GetProducts_All();
+        
     }
 }

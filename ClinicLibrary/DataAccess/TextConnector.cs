@@ -38,6 +38,46 @@ namespace ClinicLibrary.DataAccess
             patients.SaveToPatientFile();
         }
 
+        public void CheckProductExistence(ProductModel model)
+        {
+            List<ProductModel> products = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
+            bool controlMarker = false;
+
+            foreach (ProductModel p in products)
+            {
+                if (p.ProductName == model.ProductName)
+                {
+                    controlMarker = true;
+                    model.Id = p.Id;
+                }
+            }
+
+            if(controlMarker == true)
+            {
+                model.UpdateProductToFile();
+            }
+            else
+            {
+                CreateProduct(model);
+            }
+            
+        }
+
+        public void CreateProduct(ProductModel model)
+        {
+            List<ProductModel> products = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
+            int currentId = 1;
+            if (products.Count > 0)
+            {
+                currentId = products.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            products.Add(model);
+
+            products.SaveToProductFile();
+        }
+
         public List<DoctorModel> GetDoctors_All()
         {
             List<DoctorModel> doctors = GlobalConfig.DoctorFile.FullFilePath().LoadFile().ConvertToDoctorModel();
@@ -47,6 +87,12 @@ namespace ClinicLibrary.DataAccess
         public List<PatientModel> GetPatients_All()
         {
             List<PatientModel> patients = GlobalConfig.PatientFile.FullFilePath().LoadFile().ConvertToPatientModel();
+            return patients;
+        }
+
+        public List<ProductModel> GetProducts_All()
+        {
+            List<ProductModel> patients = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
             return patients;
         }
     }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsPanelForm));
-            this.activeClientDietsBox = new System.Windows.Forms.ListBox();
+            this.activeClientDietsListBox = new System.Windows.Forms.ListBox();
             this.unselectButton = new System.Windows.Forms.Button();
-            this.listOfDietsBox = new System.Windows.Forms.ListBox();
+            this.listOfDietsListBox = new System.Windows.Forms.ListBox();
             this.selectButton = new System.Windows.Forms.Button();
             this.clientsListBox = new System.Windows.Forms.ListBox();
             this.clientsListLabel = new System.Windows.Forms.Label();
@@ -48,20 +48,22 @@
             this.cellphoneText = new System.Windows.Forms.TextBox();
             this.emailText = new System.Windows.Forms.TextBox();
             this.newClientButton = new System.Windows.Forms.Button();
+            this.bmiLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // activeClientDietsBox
+            // activeClientDietsListBox
             // 
-            this.activeClientDietsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.activeClientDietsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.activeClientDietsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.activeClientDietsBox.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.activeClientDietsBox.FormattingEnabled = true;
-            this.activeClientDietsBox.ItemHeight = 21;
-            this.activeClientDietsBox.Location = new System.Drawing.Point(231, 139);
-            this.activeClientDietsBox.Name = "activeClientDietsBox";
-            this.activeClientDietsBox.Size = new System.Drawing.Size(335, 357);
-            this.activeClientDietsBox.TabIndex = 1;
+            this.activeClientDietsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.activeClientDietsListBox.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.activeClientDietsListBox.FormattingEnabled = true;
+            this.activeClientDietsListBox.ItemHeight = 21;
+            this.activeClientDietsListBox.Location = new System.Drawing.Point(344, 139);
+            this.activeClientDietsListBox.Name = "activeClientDietsListBox";
+            this.activeClientDietsListBox.Size = new System.Drawing.Size(335, 357);
+            this.activeClientDietsListBox.TabIndex = 1;
             // 
             // unselectButton
             // 
@@ -72,25 +74,25 @@
             this.unselectButton.Font = new System.Drawing.Font("Impact", 15F);
             this.unselectButton.ForeColor = System.Drawing.Color.Black;
             this.unselectButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.unselectButton.Location = new System.Drawing.Point(334, 501);
+            this.unselectButton.Location = new System.Drawing.Point(447, 501);
             this.unselectButton.Name = "unselectButton";
             this.unselectButton.Size = new System.Drawing.Size(122, 62);
             this.unselectButton.TabIndex = 15;
             this.unselectButton.Text = "Unselect";
             this.unselectButton.UseVisualStyleBackColor = false;
             // 
-            // listOfDietsBox
+            // listOfDietsListBox
             // 
-            this.listOfDietsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listOfDietsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listOfDietsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listOfDietsBox.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listOfDietsBox.FormattingEnabled = true;
-            this.listOfDietsBox.ItemHeight = 21;
-            this.listOfDietsBox.Location = new System.Drawing.Point(572, 139);
-            this.listOfDietsBox.Name = "listOfDietsBox";
-            this.listOfDietsBox.Size = new System.Drawing.Size(348, 357);
-            this.listOfDietsBox.TabIndex = 16;
+            this.listOfDietsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listOfDietsListBox.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listOfDietsListBox.FormattingEnabled = true;
+            this.listOfDietsListBox.ItemHeight = 21;
+            this.listOfDietsListBox.Location = new System.Drawing.Point(685, 139);
+            this.listOfDietsListBox.Name = "listOfDietsListBox";
+            this.listOfDietsListBox.Size = new System.Drawing.Size(348, 357);
+            this.listOfDietsListBox.TabIndex = 16;
             // 
             // selectButton
             // 
@@ -101,7 +103,7 @@
             this.selectButton.Font = new System.Drawing.Font("Impact", 15F);
             this.selectButton.ForeColor = System.Drawing.Color.Black;
             this.selectButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.selectButton.Location = new System.Drawing.Point(680, 501);
+            this.selectButton.Location = new System.Drawing.Point(793, 501);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(122, 62);
             this.selectButton.TabIndex = 18;
@@ -119,7 +121,7 @@
             this.clientsListBox.ItemHeight = 21;
             this.clientsListBox.Location = new System.Drawing.Point(12, 139);
             this.clientsListBox.Name = "clientsListBox";
-            this.clientsListBox.Size = new System.Drawing.Size(213, 357);
+            this.clientsListBox.Size = new System.Drawing.Size(326, 357);
             this.clientsListBox.TabIndex = 19;
             this.clientsListBox.SelectedValueChanged += new System.EventHandler(this.clientsListBox_SelectedValueChanged);
             // 
@@ -144,7 +146,7 @@
             this.activeClientDietsLabel.BackColor = System.Drawing.Color.Transparent;
             this.activeClientDietsLabel.Font = new System.Drawing.Font("Impact", 15F);
             this.activeClientDietsLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.activeClientDietsLabel.Location = new System.Drawing.Point(296, 104);
+            this.activeClientDietsLabel.Location = new System.Drawing.Point(409, 104);
             this.activeClientDietsLabel.Name = "activeClientDietsLabel";
             this.activeClientDietsLabel.Size = new System.Drawing.Size(201, 32);
             this.activeClientDietsLabel.TabIndex = 21;
@@ -157,7 +159,7 @@
             this.listOfDietsLabel.BackColor = System.Drawing.Color.Transparent;
             this.listOfDietsLabel.Font = new System.Drawing.Font("Impact", 15F);
             this.listOfDietsLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listOfDietsLabel.Location = new System.Drawing.Point(678, 104);
+            this.listOfDietsLabel.Location = new System.Drawing.Point(791, 104);
             this.listOfDietsLabel.Name = "listOfDietsLabel";
             this.listOfDietsLabel.Size = new System.Drawing.Size(134, 32);
             this.listOfDietsLabel.TabIndex = 22;
@@ -263,7 +265,7 @@
             // 
             this.emailText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailText.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.emailText.Location = new System.Drawing.Point(649, 48);
+            this.emailText.Location = new System.Drawing.Point(808, 16);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(158, 21);
             this.emailText.TabIndex = 33;
@@ -284,12 +286,35 @@
             this.newClientButton.Text = "New Client";
             this.newClientButton.UseVisualStyleBackColor = false;
             // 
+            // bmiLabel
+            // 
+            this.bmiLabel.AutoSize = true;
+            this.bmiLabel.BackColor = System.Drawing.Color.Transparent;
+            this.bmiLabel.Font = new System.Drawing.Font("Impact", 15F);
+            this.bmiLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bmiLabel.Location = new System.Drawing.Point(643, 41);
+            this.bmiLabel.Name = "bmiLabel";
+            this.bmiLabel.Size = new System.Drawing.Size(54, 32);
+            this.bmiLabel.TabIndex = 35;
+            this.bmiLabel.Text = "BMI";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Location = new System.Drawing.Point(808, 48);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(158, 21);
+            this.textBox1.TabIndex = 36;
+            // 
             // ClientsPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(110)))), ((int)(((byte)(135)))));
-            this.ClientSize = new System.Drawing.Size(932, 576);
+            this.ClientSize = new System.Drawing.Size(1045, 576);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bmiLabel);
             this.Controls.Add(this.newClientButton);
             this.Controls.Add(this.emailText);
             this.Controls.Add(this.cellphoneText);
@@ -306,9 +331,9 @@
             this.Controls.Add(this.clientsListLabel);
             this.Controls.Add(this.clientsListBox);
             this.Controls.Add(this.selectButton);
-            this.Controls.Add(this.listOfDietsBox);
+            this.Controls.Add(this.listOfDietsListBox);
             this.Controls.Add(this.unselectButton);
-            this.Controls.Add(this.activeClientDietsBox);
+            this.Controls.Add(this.activeClientDietsListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientsPanelForm";
             this.Text = "CLIENTS PANEL";
@@ -318,9 +343,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox activeClientDietsBox;
+        private System.Windows.Forms.ListBox activeClientDietsListBox;
         private System.Windows.Forms.Button unselectButton;
-        private System.Windows.Forms.ListBox listOfDietsBox;
+        private System.Windows.Forms.ListBox listOfDietsListBox;
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.ListBox clientsListBox;
         private System.Windows.Forms.Label clientsListLabel;
@@ -337,5 +362,7 @@
         private System.Windows.Forms.TextBox cellphoneText;
         private System.Windows.Forms.TextBox emailText;
         private System.Windows.Forms.Button newClientButton;
+        private System.Windows.Forms.Label bmiLabel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

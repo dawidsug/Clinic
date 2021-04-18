@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainFormLeftPanel = new System.Windows.Forms.Panel();
+            this.newClientButton = new System.Windows.Forms.Button();
             this.clientsPanelButton = new System.Windows.Forms.Button();
             this.dietsButton = new System.Windows.Forms.Button();
             this.mealsButton = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.mainFormTopPanel = new System.Windows.Forms.Panel();
             this.nameOfPageLabel = new System.Windows.Forms.Label();
             this.mainFormCenterPanel = new System.Windows.Forms.Panel();
-            this.newClientButton = new System.Windows.Forms.Button();
             this.mainFormLeftPanel.SuspendLayout();
             this.mainFormTopPanel.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,22 @@
             this.mainFormLeftPanel.Name = "mainFormLeftPanel";
             this.mainFormLeftPanel.Size = new System.Drawing.Size(194, 623);
             this.mainFormLeftPanel.TabIndex = 1;
+            // 
+            // newClientButton
+            // 
+            this.newClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(122)))), ((int)(((byte)(226)))));
+            this.newClientButton.FlatAppearance.BorderSize = 0;
+            this.newClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newClientButton.Font = new System.Drawing.Font("Impact", 15F);
+            this.newClientButton.ForeColor = System.Drawing.Color.Black;
+            this.newClientButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.newClientButton.Location = new System.Drawing.Point(0, 159);
+            this.newClientButton.Name = "newClientButton";
+            this.newClientButton.Size = new System.Drawing.Size(194, 62);
+            this.newClientButton.TabIndex = 7;
+            this.newClientButton.Text = "New Client";
+            this.newClientButton.UseVisualStyleBackColor = false;
+            this.newClientButton.Click += new System.EventHandler(this.newClientButton_Click);
             // 
             // clientsPanelButton
             // 
@@ -158,7 +174,7 @@
             this.mainFormTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainFormTopPanel.Location = new System.Drawing.Point(194, 0);
             this.mainFormTopPanel.Name = "mainFormTopPanel";
-            this.mainFormTopPanel.Size = new System.Drawing.Size(956, 92);
+            this.mainFormTopPanel.Size = new System.Drawing.Size(1141, 92);
             this.mainFormTopPanel.TabIndex = 2;
             // 
             // nameOfPageLabel
@@ -167,7 +183,7 @@
             this.nameOfPageLabel.AutoSize = true;
             this.nameOfPageLabel.Font = new System.Drawing.Font("Impact", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nameOfPageLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nameOfPageLabel.Location = new System.Drawing.Point(306, 22);
+            this.nameOfPageLabel.Location = new System.Drawing.Point(398, 22);
             this.nameOfPageLabel.Name = "nameOfPageLabel";
             this.nameOfPageLabel.Size = new System.Drawing.Size(285, 60);
             this.nameOfPageLabel.TabIndex = 2;
@@ -180,30 +196,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainFormCenterPanel.Location = new System.Drawing.Point(194, 91);
             this.mainFormCenterPanel.Name = "mainFormCenterPanel";
-            this.mainFormCenterPanel.Size = new System.Drawing.Size(956, 532);
+            this.mainFormCenterPanel.Size = new System.Drawing.Size(1141, 532);
             this.mainFormCenterPanel.TabIndex = 3;
-            // 
-            // newClientButton
-            // 
-            this.newClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(122)))), ((int)(((byte)(226)))));
-            this.newClientButton.FlatAppearance.BorderSize = 0;
-            this.newClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newClientButton.Font = new System.Drawing.Font("Impact", 15F);
-            this.newClientButton.ForeColor = System.Drawing.Color.Black;
-            this.newClientButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.newClientButton.Location = new System.Drawing.Point(0, 159);
-            this.newClientButton.Name = "newClientButton";
-            this.newClientButton.Size = new System.Drawing.Size(194, 62);
-            this.newClientButton.TabIndex = 7;
-            this.newClientButton.Text = "New Client";
-            this.newClientButton.UseVisualStyleBackColor = false;
-            this.newClientButton.Click += new System.EventHandler(this.newClientButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 623);
+            this.ClientSize = new System.Drawing.Size(1335, 623);
             this.Controls.Add(this.mainFormTopPanel);
             this.Controls.Add(this.mainFormLeftPanel);
             this.Controls.Add(this.mainFormCenterPanel);

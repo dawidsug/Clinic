@@ -33,11 +33,29 @@ namespace ClinicLibrary
         /// </summary>
         public string CellphoneNumber { get; set; }
         /// <summary>
+        /// Patient weight.
+        /// </summary>
+        public int Weight { get; set; }
+        /// <summary>
+        /// Patient height.
+        /// </summary>
+        public int Height { get; set; }
+        /// <summary>
+        /// Patient sex.
+        /// </summary>
+        public string Sex { get; set; }
+        /// <summary>
+        /// Patient age.
+        /// </summary>
+        public int Age { get; set; }
+        /// <summary>
         /// Diet id in database which is assigned to this Patient.
         /// </summary>
-        public int Diets { get; set; }
-        //TODO Diet Id will be list of DietModel! 
-
+        public List<DietModel> Diets { get; set; }
+        /// <summary>
+        /// Ingredients that the patient doesn't want or can't eat.
+        /// </summary>
+        public List<ProductModel> ExcludedProducts { get; set; }
 
         public string FullName
         {

@@ -58,6 +58,56 @@ namespace ClinicLibrary.DataAccess
 
             return output;
         }
+        public static List<ProductModel> ConvertToProductModel(this List<string> lines)
+        {
+            List<ProductModel> output = new List<ProductModel>();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                ProductModel p = new ProductModel();
+                p.Id = int.Parse(cols[0]);
+                p.ProductName = cols[1];
+                p.Amount = int.Parse(cols[2]);
+                p.Unit = cols[3];
+                p.Kcal = int.Parse(cols[4]);
+                p.Fat = int.Parse(cols[5]);
+                p.NKT = int.Parse(cols[6]);
+                p.JKT = int.Parse(cols[7]);
+                p.WKT = int.Parse(cols[8]);
+                p.Trans = int.Parse(cols[9]);
+                p.Cholesterol = int.Parse(cols[10]);
+                p.Sodium = int.Parse(cols[11]);
+                p.Potassium = int.Parse(cols[12]);
+                p.Carbohydrates = int.Parse(cols[13]);
+                p.Fiber = int.Parse(cols[14]);
+                p.Sugar = int.Parse(cols[15]);
+                p.Protein = int.Parse(cols[16]);
+                p.VitaminA = int.Parse(cols[17]);
+                p.Calcium = int.Parse(cols[18]);
+                p.VitaminD = int.Parse(cols[19]);
+                p.VitaminB12 = int.Parse(cols[20]);
+                p.AscorbicAcid = int.Parse(cols[21]);
+                p.Iron = int.Parse(cols[22]);
+                p.VitaminB6 = int.Parse(cols[23]);
+                p.Magnesium = int.Parse(cols[24]);
+                /*
+                if (cols.Length > 25)
+                {
+                    string[] patientsIds = cols[25].Split('|');
+
+                    foreach (string id in patientsIds)
+                    {
+                        d.Patients.Add(patients.Where(x => x.Id == int.Parse(id)).First());
+                    }
+                }
+                */
+                output.Add(p);
+            }
+
+            return output;
+        }
 
         public static void SaveToDoctorFile(this List<DoctorModel> models)
         {
@@ -81,6 +131,18 @@ namespace ClinicLibrary.DataAccess
             }
 
             File.WriteAllLines(GlobalConfig.PatientFile.FullFilePath(), lines);
+        }
+
+        public static void SaveToProductFile(this List<ProductModel> models)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (ProductModel p in models)
+            {
+                lines.Add($"{ p.Id },{ p.ProductName },{ p.Amount },{ p.Unit },{ p.Kcal },{ p.Fat },{ p.NKT },{ p.JKT },{ p.WKT },{ p.Trans },{ p.Cholesterol },{ p.Sodium },{ p.Potassium },{ p.Carbohydrates },{ p.Fiber },{ p.Sugar },{ p.Protein },{ p.VitaminA },{ p.Calcium },{ p.VitaminD },{ p.VitaminB12 },{ p.AscorbicAcid },{ p.Iron },{ p.VitaminB6 },{ p.Magnesium }");
+            }
+
+            File.WriteAllLines(GlobalConfig.ProductFile.FullFilePath(), lines);
         }
 
         public static List<PatientModel> ConvertToPatientModel(this List<string> lines)
@@ -112,6 +174,33 @@ namespace ClinicLibrary.DataAccess
             }
 
             return output;
+        }
+
+        public static void UpdateProductToFile(this ProductModel product)
+        {
+            List<ProductModel> products = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
+
+            ProductModel oldProduct = new ProductModel();
+
+            foreach (ProductModel p in products)
+            {
+                if (p.Id == product.Id)
+                {
+                    oldProduct = p;
+                }
+            }
+
+            products.Remove(oldProduct);
+
+            products.Add(product);
+
+            List<string> lines = new List<string>();
+
+            foreach (ProductModel p in products)
+            {
+                lines.Add($"{ p.Id },{ p.ProductName },{ p.Amount },{ p.Unit },{ p.Kcal },{ p.Fat },{ p.NKT },{ p.JKT },{ p.WKT },{ p.Trans },{ p.Cholesterol },{ p.Sodium },{ p.Potassium },{ p.Carbohydrates },{ p.Fiber },{ p.Sugar },{ p.Protein },{ p.VitaminA },{ p.Calcium },{ p.VitaminD },{ p.VitaminB12 },{ p.AscorbicAcid },{ p.Iron },{ p.VitaminB6 },{ p.Magnesium }");
+            }
+            File.WriteAllLines(GlobalConfig.ProductFile.FullFilePath(), lines);
         }
     }
 }
