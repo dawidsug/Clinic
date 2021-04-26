@@ -13,6 +13,8 @@ namespace ClinicLibrary
         public const string DoctorFile = "DoctorModel.csv";
         public const string PatientFile = "PatientModel.csv";
         public const string ProductFile = "ProductModel.csv";
+        public const string MealFile = "MealModel.csv";
+        public const string TypeOfMealFile = "TypeOfMealModel.csv";
 
         public static IDataConnector Connection { get; private set; }
         public static void InitializeConnections(DatabaseType db)

@@ -12,9 +12,15 @@ namespace ClinicLibrary.DataAccess
         void CreatePatient(PatientModel model);
         void CreateProduct(ProductModel model);
         void CheckProductExistence(ProductModel model);
+        void CreateMeal(MealModel model);
+        void CreateTypeOfMeal(TypeOfMealModel model);
+        void CheckMealExistence(MealModel model);
+        void DeleteMeal(MealModel model);
         List<DoctorModel> GetDoctors_All();
         List<PatientModel> GetPatients_All();
         List<ProductModel> GetProducts_All();
-        
+        List<MealModel> GetMeals_All();
+        List<TypeOfMealModel> GetTypeOfMeals_All();
+
     }
 }

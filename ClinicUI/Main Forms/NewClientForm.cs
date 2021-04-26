@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO Save excluded products
+
 namespace ClinicUI.Main_Forms
 {
     public partial class NewClientForm : Form
     {
         List<string> SexType = new List<string>();
-        List<ProductModel> AllProducts = new List<ProductModel>();
+        List<ProductModel> AllProducts = GlobalConfig.Connection.GetProducts_All();
         List<ProductModel> ExcludedProducts = new List<ProductModel>();
 
         public NewClientForm()
@@ -26,8 +28,12 @@ namespace ClinicUI.Main_Forms
 
         private void WiredUpLists()
         {
+            allProductsListBox.DisplayMember = "";
             allProductsListBox.DataSource = AllProducts;
+            allProductsListBox.DisplayMember = "ProductName";
+            excludedProductsListBox.DisplayMember = "";
             excludedProductsListBox.DataSource = ExcludedProducts;
+            excludedProductsListBox.DisplayMember = "ProductName";
         }
 
         private void InitializeSexDropDown()
@@ -117,27 +123,31 @@ namespace ClinicUI.Main_Forms
 
         private void excludeButton_Click(object sender, EventArgs e)
         {
+            ProductModel product = new ProductModel();
             foreach (ProductModel p in AllProducts)
             {
-                if(p.ProductName == (string)allProductsListBox.SelectedItem)
+                if(p == (ProductModel)allProductsListBox.SelectedItem)
                 {
-                    ExcludedProducts.Add(p);
-                    AllProducts.Remove(p);
+                    product = p;
                 }
             }
+            ExcludedProducts.Add(product);
+            AllProducts.Remove(product);
             WiredUpLists();
         }
 
         private void deselectButton_Click(object sender, EventArgs e)
         {
+            ProductModel product = new ProductModel();
             foreach (ProductModel p in ExcludedProducts)
             {
-                if (p.ProductName == (string)excludedProductsListBox.SelectedItem)
+                if (p == (ProductModel)excludedProductsListBox.SelectedItem)
                 {
-                    AllProducts.Add(p);
-                    ExcludedProducts.Remove(p);
+                    product = p;
                 }
             }
+            AllProducts.Add(product);
+            ExcludedProducts.Remove(product);
             WiredUpLists();
         }
     }

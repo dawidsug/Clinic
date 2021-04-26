@@ -26,7 +26,6 @@ namespace ClinicUI
         private void clientsPanelButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(125, 122, 226);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(125, 122, 226);
             productsButton.BackColor = System.Drawing.Color.FromArgb(125, 122, 226);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(125, 122, 226);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(125, 122, 226);
@@ -40,7 +39,6 @@ namespace ClinicUI
         private void newClientButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(173, 204, 64);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(173, 204, 64);
             productsButton.BackColor = System.Drawing.Color.FromArgb(173, 204, 64);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(173, 204, 64);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(173, 204, 64);
@@ -54,20 +52,17 @@ namespace ClinicUI
         private void ingredientsButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
             productsButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
             clientsPanelButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
             newClientButton.BackColor = System.Drawing.Color.FromArgb(51, 145, 170);
-
-            OpenMainForms(new IngredientsForm(), sender);
+            
         }
 
         private void productsButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(167, 216, 210);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(167, 216, 210);
             productsButton.BackColor = System.Drawing.Color.FromArgb(167, 216, 210);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(167, 216, 210);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(167, 216, 210);
@@ -80,7 +75,6 @@ namespace ClinicUI
         private void mealsButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(222, 209, 200);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(222, 209, 200);
             productsButton.BackColor = System.Drawing.Color.FromArgb(222, 209, 200);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(222, 209, 200);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(222, 209, 200);
@@ -93,7 +87,6 @@ namespace ClinicUI
         private void dietsButton_Click(object sender, EventArgs e)
         {
             mainFormLeftPanel.BackColor = System.Drawing.Color.FromArgb(150, 133, 169);
-            ingredientsButton.BackColor = System.Drawing.Color.FromArgb(150, 133, 169);
             productsButton.BackColor = System.Drawing.Color.FromArgb(150, 133, 169);
             mealsButton.BackColor = System.Drawing.Color.FromArgb(150, 133, 169);
             dietsButton.BackColor = System.Drawing.Color.FromArgb(150, 133, 169);

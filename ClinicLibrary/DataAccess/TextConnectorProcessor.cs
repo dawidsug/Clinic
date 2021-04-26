@@ -109,6 +109,57 @@ namespace ClinicLibrary.DataAccess
             return output;
         }
 
+        public static List<MealModel> ConvertToMealModel(this List<string> lines)
+        {
+            List<MealModel> output = new List<MealModel>();
+            List<ProductModel> products = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                MealModel m = new MealModel();
+                m.Id = int.Parse(cols[0]);
+                m.Name = cols[1];
+                m.TypeOfMealId = int.Parse(cols[2]);
+
+                if (cols.Length > 3)
+                {
+                    string[] productsIds = cols[3].Split('|');
+
+                    foreach (string id in productsIds)
+                    {
+                        if (id != "")
+                        {
+                            m.Products.Add(products.Where(x => x.Id == int.Parse(id)).First()); 
+                        }
+                    }
+                }
+
+                output.Add(m);
+            }
+
+            return output;
+        }
+
+        public static List<TypeOfMealModel> ConvertToTypeMealModel(this List<string> lines)
+        {
+            List<TypeOfMealModel> output = new List<TypeOfMealModel>();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                TypeOfMealModel tm = new TypeOfMealModel();
+                tm.Id = int.Parse(cols[0]);
+                tm.Name = cols[1];
+
+                output.Add(tm);
+            }
+
+            return output;
+        }
+
         public static void SaveToDoctorFile(this List<DoctorModel> models)
         {
             List<string> lines = new List<string>();
@@ -143,6 +194,30 @@ namespace ClinicLibrary.DataAccess
             }
 
             File.WriteAllLines(GlobalConfig.ProductFile.FullFilePath(), lines);
+        }
+
+        public static void SaveToMealFile(this List<MealModel> models)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (MealModel m in models)
+            {
+                lines.Add($"{ m.Id },{ m.Name },{ m.TypeOfMealId },{ ConvertProductsListToString(m.Products) }");
+            }
+
+            File.WriteAllLines(GlobalConfig.MealFile.FullFilePath(), lines);
+        }
+
+        public static void SaveToTypeMealFile(this List<TypeOfMealModel> models)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (TypeOfMealModel tm in models)
+            {
+                lines.Add($"{ tm.Id },{ tm.Name }");
+            }
+
+            File.WriteAllLines(GlobalConfig.TypeOfMealFile.FullFilePath(), lines);
         }
 
         public static List<PatientModel> ConvertToPatientModel(this List<string> lines)
@@ -201,6 +276,52 @@ namespace ClinicLibrary.DataAccess
                 lines.Add($"{ p.Id },{ p.ProductName },{ p.Amount },{ p.Unit },{ p.Kcal },{ p.Fat },{ p.NKT },{ p.JKT },{ p.WKT },{ p.Trans },{ p.Cholesterol },{ p.Sodium },{ p.Potassium },{ p.Carbohydrates },{ p.Fiber },{ p.Sugar },{ p.Protein },{ p.VitaminA },{ p.Calcium },{ p.VitaminD },{ p.VitaminB12 },{ p.AscorbicAcid },{ p.Iron },{ p.VitaminB6 },{ p.Magnesium }");
             }
             File.WriteAllLines(GlobalConfig.ProductFile.FullFilePath(), lines);
+        }
+
+        public static void UpdateMealToFile(this MealModel meal)
+        {
+            List<MealModel> meals = GlobalConfig.MealFile.FullFilePath().LoadFile().ConvertToMealModel();
+
+            MealModel oldMeal = new MealModel();
+
+            foreach (MealModel m in meals)
+            {
+                if (m.Id == meal.Id)
+                {
+                    oldMeal = m;
+                }
+            }
+
+            meals.Remove(oldMeal);
+
+            meals.Add(meal);
+
+            List<string> lines = new List<string>();
+
+            foreach (MealModel m in meals)
+            {
+                lines.Add($"{ m.Id },{ m.Name },{ m.TypeOfMealId },{ ConvertProductsListToString(m.Products) }");
+            }
+            File.WriteAllLines(GlobalConfig.MealFile.FullFilePath(), lines);
+        }
+
+        private static string ConvertProductsListToString(List<ProductModel> products)
+        {
+            string output = "";
+
+            if (products.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (ProductModel p in products)
+            {
+                output += $"{ p.Id }|";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
         }
     }
 }

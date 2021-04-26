@@ -36,7 +36,6 @@
             this.mealsButton = new System.Windows.Forms.Button();
             this.productsButton = new System.Windows.Forms.Button();
             this.mainLabel = new System.Windows.Forms.Label();
-            this.ingredientsButton = new System.Windows.Forms.Button();
             this.mainFormTopPanel = new System.Windows.Forms.Panel();
             this.nameOfPageLabel = new System.Windows.Forms.Label();
             this.mainFormCenterPanel = new System.Windows.Forms.Panel();
@@ -53,11 +52,10 @@
             this.mainFormLeftPanel.Controls.Add(this.mealsButton);
             this.mainFormLeftPanel.Controls.Add(this.productsButton);
             this.mainFormLeftPanel.Controls.Add(this.mainLabel);
-            this.mainFormLeftPanel.Controls.Add(this.ingredientsButton);
             this.mainFormLeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainFormLeftPanel.Location = new System.Drawing.Point(0, 0);
             this.mainFormLeftPanel.Name = "mainFormLeftPanel";
-            this.mainFormLeftPanel.Size = new System.Drawing.Size(194, 623);
+            this.mainFormLeftPanel.Size = new System.Drawing.Size(194, 797);
             this.mainFormLeftPanel.TabIndex = 1;
             // 
             // newClientButton
@@ -100,7 +98,7 @@
             this.dietsButton.Font = new System.Drawing.Font("Impact", 15F);
             this.dietsButton.ForeColor = System.Drawing.Color.Black;
             this.dietsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dietsButton.Location = new System.Drawing.Point(0, 431);
+            this.dietsButton.Location = new System.Drawing.Point(0, 363);
             this.dietsButton.Name = "dietsButton";
             this.dietsButton.Size = new System.Drawing.Size(194, 62);
             this.dietsButton.TabIndex = 5;
@@ -116,7 +114,7 @@
             this.mealsButton.Font = new System.Drawing.Font("Impact", 15F);
             this.mealsButton.ForeColor = System.Drawing.Color.Black;
             this.mealsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.mealsButton.Location = new System.Drawing.Point(0, 363);
+            this.mealsButton.Location = new System.Drawing.Point(0, 295);
             this.mealsButton.Name = "mealsButton";
             this.mealsButton.Size = new System.Drawing.Size(194, 62);
             this.mealsButton.TabIndex = 4;
@@ -132,7 +130,7 @@
             this.productsButton.Font = new System.Drawing.Font("Impact", 15F);
             this.productsButton.ForeColor = System.Drawing.Color.Black;
             this.productsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.productsButton.Location = new System.Drawing.Point(0, 295);
+            this.productsButton.Location = new System.Drawing.Point(0, 227);
             this.productsButton.Name = "productsButton";
             this.productsButton.Size = new System.Drawing.Size(194, 62);
             this.productsButton.TabIndex = 3;
@@ -151,22 +149,6 @@
             this.mainLabel.TabIndex = 1;
             this.mainLabel.Text = "Clinic";
             // 
-            // ingredientsButton
-            // 
-            this.ingredientsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(122)))), ((int)(((byte)(226)))));
-            this.ingredientsButton.FlatAppearance.BorderSize = 0;
-            this.ingredientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ingredientsButton.Font = new System.Drawing.Font("Impact", 15F);
-            this.ingredientsButton.ForeColor = System.Drawing.Color.Black;
-            this.ingredientsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ingredientsButton.Location = new System.Drawing.Point(0, 227);
-            this.ingredientsButton.Name = "ingredientsButton";
-            this.ingredientsButton.Size = new System.Drawing.Size(194, 62);
-            this.ingredientsButton.TabIndex = 0;
-            this.ingredientsButton.Text = "Ingredients";
-            this.ingredientsButton.UseVisualStyleBackColor = false;
-            this.ingredientsButton.Click += new System.EventHandler(this.ingredientsButton_Click);
-            // 
             // mainFormTopPanel
             // 
             this.mainFormTopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(133)))), ((int)(((byte)(169)))));
@@ -174,7 +156,7 @@
             this.mainFormTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainFormTopPanel.Location = new System.Drawing.Point(194, 0);
             this.mainFormTopPanel.Name = "mainFormTopPanel";
-            this.mainFormTopPanel.Size = new System.Drawing.Size(1141, 92);
+            this.mainFormTopPanel.Size = new System.Drawing.Size(1207, 92);
             this.mainFormTopPanel.TabIndex = 2;
             // 
             // nameOfPageLabel
@@ -183,7 +165,7 @@
             this.nameOfPageLabel.AutoSize = true;
             this.nameOfPageLabel.Font = new System.Drawing.Font("Impact", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nameOfPageLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.nameOfPageLabel.Location = new System.Drawing.Point(398, 22);
+            this.nameOfPageLabel.Location = new System.Drawing.Point(431, 22);
             this.nameOfPageLabel.Name = "nameOfPageLabel";
             this.nameOfPageLabel.Size = new System.Drawing.Size(285, 60);
             this.nameOfPageLabel.TabIndex = 2;
@@ -196,14 +178,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainFormCenterPanel.Location = new System.Drawing.Point(194, 91);
             this.mainFormCenterPanel.Name = "mainFormCenterPanel";
-            this.mainFormCenterPanel.Size = new System.Drawing.Size(1141, 532);
+            this.mainFormCenterPanel.Size = new System.Drawing.Size(1207, 706);
             this.mainFormCenterPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 623);
+            this.ClientSize = new System.Drawing.Size(1401, 797);
             this.Controls.Add(this.mainFormTopPanel);
             this.Controls.Add(this.mainFormLeftPanel);
             this.Controls.Add(this.mainFormCenterPanel);
@@ -226,7 +208,6 @@
         private System.Windows.Forms.Button mealsButton;
         private System.Windows.Forms.Button productsButton;
         private System.Windows.Forms.Label mainLabel;
-        private System.Windows.Forms.Button ingredientsButton;
         private System.Windows.Forms.Panel mainFormTopPanel;
         private System.Windows.Forms.Label nameOfPageLabel;
         private System.Windows.Forms.Panel mainFormCenterPanel;

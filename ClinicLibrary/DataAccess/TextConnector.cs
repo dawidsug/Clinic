@@ -52,7 +52,7 @@ namespace ClinicLibrary.DataAccess
                 }
             }
 
-            if(controlMarker == true)
+            if (controlMarker == true)
             {
                 model.UpdateProductToFile();
             }
@@ -60,7 +60,7 @@ namespace ClinicLibrary.DataAccess
             {
                 CreateProduct(model);
             }
-            
+
         }
 
         public void CreateProduct(ProductModel model)
@@ -94,6 +94,90 @@ namespace ClinicLibrary.DataAccess
         {
             List<ProductModel> patients = GlobalConfig.ProductFile.FullFilePath().LoadFile().ConvertToProductModel();
             return patients;
+        }
+
+        public void CreateMeal(MealModel model)
+        {
+            List<MealModel> meals = GlobalConfig.MealFile.FullFilePath().LoadFile().ConvertToMealModel();
+            int currentId = 1;
+            if (meals.Count > 0)
+            {
+                currentId = meals.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            meals.Add(model);
+
+            meals.SaveToMealFile();
+        }
+
+        public List<MealModel> GetMeals_All()
+        {
+            List<MealModel> meals = GlobalConfig.MealFile.FullFilePath().LoadFile().ConvertToMealModel();
+            return meals;
+        }
+
+        public void CreateTypeOfMeal(TypeOfMealModel model)
+        {
+            List<TypeOfMealModel> typeMeals = GlobalConfig.TypeOfMealFile.FullFilePath().LoadFile().ConvertToTypeMealModel();
+            int currentId = 1;
+            if (typeMeals.Count > 0)
+            {
+                currentId = typeMeals.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            typeMeals.Add(model);
+
+            typeMeals.SaveToTypeMealFile();
+        }
+
+        public List<TypeOfMealModel> GetTypeOfMeals_All()
+        {
+            List<TypeOfMealModel> typeMeals = GlobalConfig.TypeOfMealFile.FullFilePath().LoadFile().ConvertToTypeMealModel();
+            return typeMeals;
+        }
+
+        public void CheckMealExistence(MealModel model)
+        {
+            List<MealModel> meals = GlobalConfig.MealFile.FullFilePath().LoadFile().ConvertToMealModel();
+            bool controlMarker = false;
+
+            foreach (MealModel m in meals)
+            {
+                if (m.Name == model.Name)
+                {
+                    controlMarker = true;
+                    model.Id = m.Id;
+                }
+            }
+
+            if (controlMarker == true)
+            {
+                model.UpdateMealToFile();
+            }
+            else
+            {
+                CreateMeal(model);
+            }
+        }
+        
+        public void DeleteMeal(MealModel model)
+        {
+            List<MealModel> meals = GlobalConfig.MealFile.FullFilePath().LoadFile().ConvertToMealModel();
+            MealModel toRemove = new MealModel();
+            if (meals.Count != 0)
+            {
+                foreach (MealModel meal in meals)
+                {
+                    if (model.Id == meal.Id)
+                    {
+                        toRemove = meal;
+                    }
+                } 
+            }
+            meals.Remove(toRemove);
+            meals.SaveToMealFile();
         }
     }
 }

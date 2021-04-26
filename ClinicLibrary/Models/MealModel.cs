@@ -24,9 +24,6 @@ namespace ClinicLibrary
         /// List of products in that meal.
         /// </summary>
         public List<ProductModel> Products { get; set; } = new List<ProductModel>();
-        /// <summary>
-        /// List of ingredients in that meal.
-        /// </summary>
-        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
+        
     }
 }

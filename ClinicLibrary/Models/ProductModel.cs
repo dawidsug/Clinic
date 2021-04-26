@@ -108,10 +108,5 @@ namespace ClinicLibrary
         /// The amount of magnesium.
         /// </summary>
         public int Magnesium { get; set; }
-        /// <summary>
-        /// Ingredient id in database.
-        /// </summary>
-        public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
-        //When doctor will be creating product that he will be able to change the amount of ingredient in that product. And then will create new ingredient with name IngredientNewamount.
     }
 }

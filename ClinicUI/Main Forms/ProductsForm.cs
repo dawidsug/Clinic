@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO Add delete product button
+
 namespace ClinicUI.Main_Forms
 {
     public partial class ProductsForm : Form
@@ -318,31 +320,31 @@ namespace ClinicUI.Main_Forms
 
         private void allProductsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ProductModel selectedProduct = (ProductModel)allProductsListBox.SelectedItem;
+            ProductModel SelectedProduct = (ProductModel)allProductsListBox.SelectedItem;
 
-            productNameText.Text = selectedProduct.ProductName;
-            amountText.Text = selectedProduct.Amount.ToString();
-            kcalText.Text = selectedProduct.Kcal.ToString();
-            fatText.Text = selectedProduct.Fat.ToString();
-            nktText.Text = selectedProduct.NKT.ToString();
-            jktText.Text = selectedProduct.JKT.ToString();
-            wktText.Text = selectedProduct.WKT.ToString();
-            transText.Text = selectedProduct.Trans.ToString();
-            cholesterolText.Text = selectedProduct.Cholesterol.ToString();
-            sodiumText.Text = selectedProduct.Sodium.ToString();
-            potassiumText.Text = selectedProduct.Potassium.ToString();
-            carbohydratesText.Text = selectedProduct.Carbohydrates.ToString();
-            fiberText.Text = selectedProduct.Fiber.ToString();
-            sugarText.Text = selectedProduct.Sugar.ToString();
-            proteinText.Text = selectedProduct.Protein.ToString();
-            vitaminAText.Text = selectedProduct.VitaminA.ToString();
-            calciumText.Text = selectedProduct.Calcium.ToString();
-            vitaminDText.Text = selectedProduct.VitaminD.ToString();
-            vitaminB12Text.Text = selectedProduct.VitaminB12.ToString();
-            ascorbicAcidText.Text = selectedProduct.AscorbicAcid.ToString();
-            ironText.Text = selectedProduct.Iron.ToString();
-            vitaminB6Text.Text = selectedProduct.VitaminB6.ToString();
-            magnesiumText.Text = selectedProduct.Magnesium.ToString();
+            productNameText.Text = SelectedProduct.ProductName;
+            amountText.Text = SelectedProduct.Amount.ToString();
+            kcalText.Text = SelectedProduct.Kcal.ToString();
+            fatText.Text = SelectedProduct.Fat.ToString();
+            nktText.Text = SelectedProduct.NKT.ToString();
+            jktText.Text = SelectedProduct.JKT.ToString();
+            wktText.Text = SelectedProduct.WKT.ToString();
+            transText.Text = SelectedProduct.Trans.ToString();
+            cholesterolText.Text = SelectedProduct.Cholesterol.ToString();
+            sodiumText.Text = SelectedProduct.Sodium.ToString();
+            potassiumText.Text = SelectedProduct.Potassium.ToString();
+            carbohydratesText.Text = SelectedProduct.Carbohydrates.ToString();
+            fiberText.Text = SelectedProduct.Fiber.ToString();
+            sugarText.Text = SelectedProduct.Sugar.ToString();
+            proteinText.Text = SelectedProduct.Protein.ToString();
+            vitaminAText.Text = SelectedProduct.VitaminA.ToString();
+            calciumText.Text = SelectedProduct.Calcium.ToString();
+            vitaminDText.Text = SelectedProduct.VitaminD.ToString();
+            vitaminB12Text.Text = SelectedProduct.VitaminB12.ToString();
+            ascorbicAcidText.Text = SelectedProduct.AscorbicAcid.ToString();
+            ironText.Text = SelectedProduct.Iron.ToString();
+            vitaminB6Text.Text = SelectedProduct.VitaminB6.ToString();
+            magnesiumText.Text = SelectedProduct.Magnesium.ToString();
         }
     }
 }

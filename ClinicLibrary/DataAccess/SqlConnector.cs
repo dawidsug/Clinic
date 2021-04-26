@@ -36,6 +36,31 @@ namespace ClinicLibrary.DataAccess
             }
         }
 
+        public void CheckMealExistence(MealModel model)
+        {
+            List<MealModel> meals = GetMeals_All();
+            bool controlMarker = false;
+
+            foreach (MealModel m in meals)
+            {
+                if (m.Name == model.Name)
+                {
+                    controlMarker = true;
+                    model.Id = m.Id;
+                }
+            }
+
+            if (controlMarker == true)
+            {
+                UpdateMeal(model);
+            }
+            else
+            {
+                CreateMeal(model);
+            }
+        }
+
+
         public void CreateDoctor(DoctorModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
@@ -50,7 +75,7 @@ namespace ClinicLibrary.DataAccess
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spDoctors_Insert", p, commandType: CommandType.StoredProcedure);
-                
+
                 //model.Id = p.Get<int>("@id");
             }
         }
@@ -169,6 +194,122 @@ namespace ClinicLibrary.DataAccess
                 output = connection.Query<ProductModel>("dbo.spProducts_GetAll").ToList();
             }
             return output;
+        }
+
+        public void CreateMeal(MealModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Name", model.Name);
+                p.Add("@TypeOfMealId", model.TypeOfMealId);
+
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spMeals_Insert", p, commandType: CommandType.StoredProcedure);
+                if (model.Products != null)
+                {
+                    foreach (ProductModel product in model.Products)
+                    {
+                        p = new DynamicParameters();
+                        p.Add("@MealId", model.Id);
+                        p.Add("@ProductId", product.Id);
+                        p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                        connection.Execute("dbo.spMealProducts_Insert", p, commandType: CommandType.StoredProcedure);
+                    }
+                }
+            }
+        }
+
+        public void UpdateMeal(MealModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@MealId", model.Id);
+                connection.Execute("dbo.spMealProducts_DeleteMeal", p, commandType: CommandType.StoredProcedure);
+
+                if (model.Products != null)
+                {
+                    foreach (ProductModel product in model.Products)
+                    {
+                        p = new DynamicParameters();
+                        p.Add("@MealId", model.Id);
+                        p.Add("@ProductId", product.Id);
+                        p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                        connection.Execute("dbo.spMealProducts_Insert", p, commandType: CommandType.StoredProcedure);
+                    }
+                }
+            }
+        }
+
+        public List<MealModel> GetMeals_All()
+        {
+            List<MealModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                output = connection.Query<MealModel>("dbo.spMeals_GetAll").ToList();
+                foreach (MealModel meal in output)
+                {
+                    var p = new DynamicParameters();
+                    p.Add("@MealId", meal.Id);
+                    meal.Products = connection.Query<ProductModel>("dbo.spProducts_GetByMeal", p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            return output;
+        }
+
+        public void CreateTypeOfMeal(TypeOfMealModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Name", model.Name);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spTypeOfMeals_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public List<TypeOfMealModel> GetTypeOfMeals_All()
+        {
+            List<TypeOfMealModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                output = connection.Query<TypeOfMealModel>("dbo.spTypeOfMeals_GetAll").ToList();
+            }
+            return output;
+        }
+
+        /*public List<ProductModel> GetProductsByMealId()
+        {
+            List<ProductModel> output = new List<ProductModel>();
+            List<MealModel> meals = new List<MealModel>();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                meals = connection.Query<MealModel>("dbo.spMeals_GetAll").ToList();
+                foreach (MealModel meal in meals)
+                {
+                    var p = new DynamicParameters();
+                    p.Add("@MealId", meal.Id);
+                    output = connection.Query<ProductModel>("dbo.MealProducts_GetByMeal", p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            return output;
+        }*/
+
+        public void DeleteMeal(MealModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CNNString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@MealId", model.Id);
+                connection.Execute("dbo.spMealProducts_DeleteMeal", p, commandType: CommandType.StoredProcedure);
+
+                p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                connection.Execute("dbo.spMeals_DeleteMeal", p, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }
