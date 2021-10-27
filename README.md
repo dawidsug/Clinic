@@ -26,9 +26,9 @@
 
 This project was created because I needed an app for making diets. It was a good opportunity to train C# programming skills by creating C# desktop app with WinForms. Application provides basic functionalities, such as:
 
--registration (with validation) and logging in for users
--creating products, meals and diets
--adding and managing clients
+- registration (with validation) and logging in for users
+- creating products, meals and diets
+- adding and managing clients
 
 
 
